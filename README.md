@@ -54,9 +54,12 @@ The player competes against the computer in a game of rock–paper–scissors:
 
 ```
 .
-├── index.html   # Main page + start button (.mulai)
-├── app.js       # All game logic
-└── README.md    # This documentation
+├── index.html         # Main page + start button (.mulai)
+├── app.js             # All game logic
+├── style.css          # Page styling
+├── images/
+│   └── elaina-fav.jpeg  # Favicon (see Image Credits below)
+└── README.md          # This documentation
 ```
 
 ---
@@ -142,6 +145,16 @@ This project served as hands-on practice for the following concepts:
 - [MDN: `try...catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
 - [MDN: `Array.prototype.includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
 - [MDN: Concurrency model and the Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+
+---
+
+## 🖼️ Image Credits
+
+- Favicon `images/elaina-fav.jpeg` — chibi fan-art of **Elaina** from *Majo no Tabitabi / Wandering Witch: The Journey of Elaina*.
+  - Source (Pinterest pin): <https://pin.it/5vyA2UM8p> — "Elaina Icon", pinned by Firly F r y.
+  - Added in commit `a769ce4` (`feat: add bucket dir/ for favicon and link it to html page`).
+- Copyright belongs to the original artist and the respective copyright holders (e.g. Jougi Shiraishi / SB Creative for the *Wandering Witch* series). Used here for non-commercial, educational purposes only.
+- If you are the rights holder and want this image removed or credited differently, please open an issue.
 
 ---
 
