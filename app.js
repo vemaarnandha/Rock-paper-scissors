@@ -25,15 +25,15 @@ const startGame = document.querySelector('.mulai');
 startGame.addEventListener('click', () => {
     const user = userChoice();
     
-    if (user === null) {
+    if (!user) {
         console.log('Game aborted.');
         return;
     }
 
     const computer = getComputerChoice(getRandomNum()); 
 
-    console.log(`User memilih: ${user}`);
-    console.log(`Computer memilih: ${computer}`);
+    console.log(`User choose: ${user}`);
+    console.log(`Computer choose: ${computer}`);
 
     switch (user) { 
         case 'rock':
@@ -94,7 +94,7 @@ startGame.addEventListener('click', () => {
             break;
             
         default:
-            console.log('Pilihan user tidak valid / salah ketik.');
+            console.log('User input are invalid.');
             break;
     }
     
