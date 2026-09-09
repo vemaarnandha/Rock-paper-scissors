@@ -4,7 +4,7 @@ const getComputerChoice = (num) => {
     switch (num) {
         case 1: return 'rock';
         case 2: return 'paper';
-        case 3: return 'siccors'; 
+        case 3: return 'sciccors';
         default: return 'unknown choice';
     }
 };
@@ -13,31 +13,25 @@ const userChoice = () => {
     return prompt(`pick between:
     - rock
     - paper
-    - siccors`);
+    - scissors`);
 };
+const validChoice = ['rock', 'paper', 'scissors'];
 
-let userScore = 0;
-let computerScore = 0;
-let round = 0;
-
-const startGame = document.querySelector('.mulai');
-
-startGame.addEventListener('click', () => {
-    const user = userChoice();
-    
-    if (!user) {
-        console.log('Game aborted.');
+const evaluateGame = (user, computer) => {
+    try {
+        if(!user) throw new Error("input cant be empty.");
+        user = user.toLowerCase();
+        if(!validChoice.includes(user)) throw new Error("input cant be established.");
+    } catch (error) {
+        console.log(error);
         return;
     }
-
-    const computer = getComputerChoice(getRandomNum()); 
-
     console.log(`User choose: ${user}`);
     console.log(`Computer choose: ${computer}`);
 
-    switch (user) { 
+    switch (user) {
         case 'rock':
-            switch (computer) { 
+            switch (computer) {
                 case 'rock':
                     console.log('tie!');
                     break;
@@ -45,7 +39,7 @@ startGame.addEventListener('click', () => {
                     computerScore += 1;
                     console.log('computer win!');
                     break;
-                case 'siccors':
+                case 'sciccors':
                     userScore += 1;
                     console.log('User win!~');
                     break;
@@ -54,7 +48,7 @@ startGame.addEventListener('click', () => {
                     break;
             }
             break;
-            
+
         case 'paper':
             switch (computer) {
                 case 'rock':
@@ -64,7 +58,7 @@ startGame.addEventListener('click', () => {
                 case 'paper':
                     console.log('tie');
                     break;
-                case 'siccors':
+                case 'sciccors':
                     computerScore += 1;
                     console.log('Computer win!');
                     break;
@@ -73,8 +67,8 @@ startGame.addEventListener('click', () => {
                     break;
             }
             break;
-            
-        case 'siccors':
+
+        case 'scissors':
             switch (computer) {
                 case 'rock':
                     computerScore += 1;
@@ -84,7 +78,7 @@ startGame.addEventListener('click', () => {
                     userScore += 1;
                     console.log('user win');
                     break;
-                case 'siccors':
+                case 'sciccors':
                     console.log('Tie');
                     break;
                 default:
@@ -92,12 +86,22 @@ startGame.addEventListener('click', () => {
                     break;
             }
             break;
-            
+
         default:
             console.log('User input are invalid.');
             break;
     }
-    
+
     round += 1;
     console.log(`Round: ${round} | User: ${userScore} | Computer: ${computerScore}`);
+};
+
+let userScore = 0;
+let computerScore = 0;
+let round = 0;
+
+const startGame = document.querySelector('.mulai');
+
+startGame.addEventListener('click', () => {
+    evaluateGame(userChoice(), getComputerChoice(getRandomNum()));
 });
