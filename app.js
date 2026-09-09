@@ -94,6 +94,18 @@ const evaluateGame = (user, computer) => {
 
     round += 1;
     console.log(`Round: ${round} | User: ${userScore} | Computer: ${computerScore}`);
+    if(round >= 5){
+        if(userScore > computerScore){
+            console.log('games end with user be the winner');
+        } else {
+            console.log('games end with computer be the winner');
+        }
+        console.log(`game ends...
+            every point will be reset to zero and round will begun at 0 too.`);
+        round = 0;
+        userScore = 0;
+        computerScore = 0;
+    }
 };
 
 let userScore = 0;
